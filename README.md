@@ -1,4 +1,6 @@
 # discharge-summaries
-Currently working on v1.  
-Add different branches for each version.  
+## Work in progress for start-up
+### 2 branches currently
+v1 includes backend LLM logic  
+pitch-demo (not complete) will be aesthetic demo used when pitching
 ...
