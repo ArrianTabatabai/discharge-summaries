@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Stay Timeline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header, footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #00796b;
+            color: white;
+        }
+        .timeline {
+            position: relative;
+            margin: 2em auto;
+            padding: 2em 0;
+            width: 80%;
+            list-style: none;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #00796b;
+            left: 50%;
+            margin-left: -2px;
+        }
+        .timeline-event {
+            position: relative;
+            margin: 1em 0;
+            padding: 1em;
+            width: 45%;
+            background: #e0f2f1;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .timeline-event.left {
+            left: 0;
+            transform: translateX(2.5%);
+            text-align: right;
+        }
+        .timeline-event.right {
+            left: 50%;
+            transform: translateX(2.5%);
+            text-align: left;
+        }
+        .timeline-event::before {
+            content: '';
+            position: absolute;
+            top: 1.5em;
+            width: 0;
+            height: 0;
+            border: solid transparent;
+            pointer-events: none;
+            border-width: 10px;
+            margin-top: -10px;
+        }
+        .timeline-event.left::before {
+            left: 100%;
+            border-left-color: #e0f2f1;
+            border-right: none;
+        }
+        .timeline-event.right::before {
+            right: 100%;
+            border-right-color: #e0f2f1;
+            border-left: none;
+        }
+        .timeline-date {
+            font-weight: bold;
+        }
+        .event-details {
+            display: none;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 1em;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: calc(100% + 0.5em); /* Position below the event */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            z-index: 1; /* Ensure event details are above other elements */
+        }
+        .timeline-event:hover .event-details {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Patient Stay Timeline</h1>
+    </header>
+    <main>
+        <ul class="timeline">
+            <li class="timeline-event left">
+                <div class="timeline-date">Day 1</div>
+                <div class="timeline-content">Patient admitted with symptoms X.</div>
+                <div class="event-details">
+                    <p><strong>Admitted:</strong> 2024-05-01</p>
+                    <p><strong>Symptoms:</strong> High fever, cough, fatigue.</p>
+                    <p><strong>Initial assessment:</strong> Suspected respiratory infection.</p>
+                </div>
+            </li>
+            <li class="timeline-event right">
+                <div class="timeline-date">Day 2</div>
+                <div class="timeline-content">Diagnosis confirmed. Treatment Y started.</div>
+                <div class="event-details">
+                    <p><strong>Diagnosis:</strong> Pneumonia.</p>
+                    <p><strong>Treatment:</strong> Antibiotics and supportive care.</p>
+                    <p><strong>Notes:</strong> Patient responded well to initial treatment.</p>
+                </div>
+            </li>
+            <li class="timeline-event left">
+                <div class="timeline-date">Day 5</div>
+                <div class="timeline-content">Improvement in symptoms observed.</div>
+                <div class="event-details">
+                    <p><strong>Improvement:</strong> Reduced fever, improved breathing.</p>
+                    <p><strong>Assessment:</strong> Continued improvement, no complications.</p>
+                </div>
+            </li>
+            <li class="timeline-event right">
+                <div class="timeline-date">Day 10</div>
+                <div class="timeline-content">Patient discharged.</div>
+                <div class="event-details">
+                    <p><strong>Discharged:</strong> 2024-05-10</p>
+                    <p><strong>Condition:</strong> Stable, advised follow-up in two weeks.</p>
+                    <p><strong>Medications:</strong> Prescribed oral antibiotics and rest.</p>
+                </div>
+            </li>
+            <!-- Additional Events -->
+            <li class="timeline-event left">
+                <div class="timeline-date">Day 12</div>
+                <div class="timeline-content">Follow-up appointment scheduled.</div>
+                <div class="event-details">
+                    <p><strong>Date:</strong> 2024-05-12</p>
+                    <p><strong>Notes:</strong> Patient shows continued improvement.</p>
+                </div>
+            </li>
+            <li class="timeline-event right">
+                <div class="timeline-date">Day 14</div>
+                <div class="timeline-content">Review of medication.</div>
+                <div class="event-details">
+                    <p><strong>Medications:</strong> Adjusted based on progress.</p>
+                    <p><strong>Assessment:</strong> Patient responding well.</p>
+                </div>
+            </li>
+            <li class="timeline-event left">
+                <div class="timeline-date">Day 18</div>
+                <div class="timeline-content">Final assessment.</div>
+                <div class="event-details">
+                    <p><strong>Assessment:</strong> Full recovery.</p>
+                    <p><strong>Notes:</strong> Discharged from follow-up.</p>
+                </div>
+            </li>
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Startup</p>
+    </footer>
+</body>
+</html>
