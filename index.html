@@ -4,22 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NHS Discharge Summary Demo</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </head>
 <body>
     <header>
-        <h1>NHS Discharge Summary Automation</h1>
+        <h1>Synopsis</h1>
     </header>
     <main>
         <h2>Upload Daily Summary Files</h2>
         <form id="upload-form">
             <input type="file" multiple id="daily-summaries">
-            <button type="submit">Generate Discharge Summary</button>
+            <div class="buttons">
+                <button type="submit">Generate Discharge Summary</button>
+                <button id="download-pdf-button" class="hidden">Download PDF</button>
+                <a id="timeline-button" href="timeline.html" class="hidden button">View Patient Timeline</a>
+            </div>
         </form>
         <div id="output"></div>
     </main>
     <footer>
-        <p>&copy; 2024 Your Startup</p>
+        <p>&copy; 2024 Synopsis</p>
     </footer>
     <script src="script.js"></script>
 </body>

@@ -7,11 +7,13 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #ffffff; /* White background for a clean look */
+            color: #3d3d3d; /* Darker grey for better readability */
         }
         header, footer {
             text-align: center;
-            padding: 1em;
-            background-color: #00796b;
+            padding: 1.5em 0;
+            background-color: #005eb8; /* NHS Blue */
             color: white;
         }
         .timeline {
@@ -27,7 +29,7 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background: #00796b;
+            background: #005eb8; /* NHS Blue */
             left: 50%;
             margin-left: -2px;
         }
@@ -36,20 +38,19 @@
             margin: 1em 0;
             padding: 1em;
             width: 45%;
-            background: #e0f2f1;
+            background: #e0f2f1; /* Light teal background for events */
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 8px; /* Rounded corners */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
         }
         .timeline-event.left {
             left: 0;
-            transform: translateX(2.5%);
+            transform: translateX(-5%); /* Adjusted position for better balance */
             text-align: right;
         }
         .timeline-event.right {
             left: 50%;
-            transform: translateX(2.5%);
+            transform: translateX(5%); /* Adjusted position for better balance */
             text-align: left;
         }
         .timeline-event::before {
@@ -75,20 +76,21 @@
         }
         .timeline-date {
             font-weight: bold;
+            color: #005eb8; /* NHS Blue for dates */
         }
         .event-details {
             display: none;
             background-color: #ffffff;
             border: 1px solid #ddd;
             padding: 1em;
-            border-radius: 4px;
+            border-radius: 8px; /* Rounded corners */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: absolute;
             top: calc(100% + 0.5em); /* Position below the event */
             left: 50%;
             transform: translateX(-50%);
-            width: 200px;
-            z-index: 1; /* Ensure event details are above other elements */
+            width: 250px; /* Increased width for better readability */
+            z-index: 10; /* Ensure event details are above other elements */
         }
         .timeline-event:hover .event-details {
             display: block;
@@ -97,7 +99,7 @@
 </head>
 <body>
     <header>
-        <h1>Patient Stay Timeline</h1>
+        <h1>Synopsis: Patient Stay Timeline</h1>
     </header>
     <main>
         <ul class="timeline">
@@ -164,7 +166,7 @@
         </ul>
     </main>
     <footer>
-        <p>&copy; 2024 Your Startup</p>
+        <p>&copy; 2024 Synopsis</p>
     </footer>
 </body>
 </html>
