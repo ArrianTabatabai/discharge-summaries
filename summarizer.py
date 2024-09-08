@@ -20,6 +20,9 @@ class alpha():
 
         )
 
+        x = self.pipeline("hey how are you")
+        print(x)
+
         self.message_history = [] #This will be a list of messages
 
         self.terminators = [
@@ -32,17 +35,6 @@ class alpha():
 
     def set_message_history(self, msg):
 
-        '''
-         message should be formatted as :
-         [ {"role":"user","content": query} ]
-
-         Available dict content as per llama
-
-         Role can be user or system
-
-
-        '''
-
         self.message_history += [msg]
 
         return
@@ -53,19 +45,19 @@ class alpha():
     def gen_response(self,
                      query,
                      max_tokens=1024,#Max tokens to generate
-                     temperature = 0, ##Temperature is a float value defining the amount of randomness 1 being most random, and 0 being shifted to the most likely logit,
+                     temperature = 0.1, ##Temperature is a float value defining the amount of randomness 1 being most random, and 0 being shifted to the most likely logit,
                      top_p = 0.9 #Another prob var, if set below 1 then the smallest # of most probable tokens that add up to top_p are kept - try changing for different results
     ):
 
         self.set_message_history(query)
 
-        prompt = self.pipeline.tokenizer.apply_chat_template(self.message_history,tokenizer=False, add_generation_prompt=True)
+        #prompt = self.pipeline.tokenizer.apply_chat_template(self.message_history,tokenizer=False, add_generation_prompt=True)
 
-        output = self.pipeline(
-            prompt,
+        self.pipeline(
+            query,
             max_new_tokens = max_tokens,
-            eos_token_id = self.terminators,
-            do_sample = True, ##True, this parameter enables decoding strategies such as multinomial sampling, beam-search multinomial sampling, Top-K sampling and Top-p sampling. All these strategies select the next token from the probability distribution over the entire vocabulary with various strategy-specific adjustments.
+            #eos_token_id = self.terminators,
+            #do_sample = True, ##True, this parameter enables decoding strategies such as multinomial sampling, beam-search multinomial sampling, Top-K sampling and Top-p sampling. All these strategies select the next token from the probability distribution over the entire vocabulary with various strategy-specific adjustments.
             temperature = temperature,
             top_p = top_p
         )
@@ -73,8 +65,7 @@ class alpha():
         return
 
     def test_response(self):
-
-        self.gen_response(query={"role":"user","content":"Who are you?"})
+        self.gen_response(query="hello")
 
         return
 
