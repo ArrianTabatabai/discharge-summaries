@@ -1,0 +1,36 @@
+Patient Name: Jane Smith
+Date of Admission: 2024-03-11
+Age: 65
+Gender: Female
+
+Chief Complaint:
+The patient presents with worsening shortness of breath and increased sputum production.
+
+History of Present Illness:
+Mrs. Smith's symptoms have worsened since yesterday. She reports increased difficulty breathing and coughing up thicker sputum.
+
+Past Medical History:
+- Chronic obstructive pulmonary disease (COPD)
+- Hypertension
+- Hyperlipidemia
+
+Medications:
+- Albuterol inhaler as needed
+- Lisinopril 10 mg daily
+- Amlodipine 5 mg daily
+
+Physical Examination:
+- Blood Pressure: 150/90 mmHg
+- Heart Rate: 90 bpm
+- Respiratory Rate: 22 bpm
+- Oxygen Saturation: 86% on room air
+- Increased wheezing and crackles on auscultation
+
+Assessment and Plan:
+- Persistent exacerbation of COPD with worsening respiratory distress.
+- Continue oxygen therapy and nebulized bronchodilators.
+- Review chest X-ray results.
+- Consider antibiotic therapy for suspected respiratory infection.
+
+Follow-up:
+Patient to remain on close monitoring. Consult pulmonology for further assessment.
