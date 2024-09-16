@@ -49,6 +49,9 @@ class ModelTrainer():
         print(i)
 
 
+        self.pipeline.save_pretrained(r"C:\Users\rajib\Documents\GitHub\discharge-summaries\saved_model")
+
+
         return
 
     def summarize(self,
@@ -95,16 +98,13 @@ class Dataset():
 
 if __name__ == "__main__":
     trainer = ModelTrainer()
-    testSummary = open(r"C:\Users\rajib\Documents\GitHub\discharge-summaries\Example Training\2 (Single File Format)\input","r").read()
-    out = trainer.summarize(
-        text= testSummary
-    )
-    out = out[0]["generated_text"][1]["content"]
-    open("output.txt","w").write(out)
+    #testSummary = open(r"C:\Users\rajib\Documents\GitHub\discharge-summaries\Example Training\2 (Single File Format)\input","r").read()
+    #out = trainer.summarize(
+    #    text= testSummary
+    #)
+    #out = out[0]["generated_text"][1]["content"]
+    #open("output.txt","w").write(out)
 
 
-    while True:
-        text = input("Enter documents")
 
-        out = trainer.summarize(text= text)
 

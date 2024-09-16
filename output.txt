@@ -1,0 +1,83 @@
+**Discharge Summary**
+
+**Patient Information**
+
+* Name: Ms. J
+* Age: 76 years
+* Sex: Female
+* Date of Admission: 01/09/2024
+* Date of Discharge: 06/09/2024
+
+**Reason for Admission**
+
+Ms. J was admitted to the hospital with concerns regarding pneumosepsis, secondary to pneumonia.
+
+**Active Medical Issues**
+
+1. **Sepsis secondary to pneumonia**: Ms. J was treated with ceftriaxone and azithromycin to cover for atypical infections. She was also started on a 75 mL infusion of Ringer's lactate over 10 hours, in addition to the 1 litre bolus given by the Emergency Department.
+2. **Atrial Fibrillation with rapid ventricular rate**: Ms. J's rate was controlled with oral metoprolol 50 mg, and she was also started on apixaban.
+3. **Hyponatremia**: Ms. J's hyponatremia was likely secondary to hypovolemia, and she was given maintenance fluids in addition to the bolus that Emerged had already provided.
+4. **Migratory Polyarthralgia**: This pattern was nonspecific, time-limited, and intermittent, and Ms. J currently only had one painful joint.
+
+**Past Medical History**
+
+* Squamous cell carcinoma of the lung, stage III, diagnosed in November 2019
+* Left leg DVT sustained in February 2020
+* Gastroesophageal reflux disease
+* Remote history of spastic bladder
+* Remote history of breast cyst
+
+**Medications**
+
+* Diltiazem 120 mg p.o. daily (held on admission)
+* Metoprolol 50 mg po bid (newly started on admission)
+* Apixaban 5 mg oral b.i.d. (new as of 1 week PTA)
+* Amoxi-Clav 500/125 mg t.i.d. (prescribed a 7-day course 1 week PTA, completed)
+* Ceftriaxone 1 g IV q 24 X 7 days to stop on Date
+* Azithromycin 500 mg now followed by 250 mg daily for 5 days to stop on Date
+* CBD oil at bedtime
+* Tylenol 650 mg q4 hrs PRN started for pain or fever
+
+**Allergies**
+
+* Sustained some sort of severe reaction while on paclitaxel chemotherapy
+
+**Social History**
+
+* Lives in a home in London with her husband
+* Gets assistance from him for some of her IADLs
+* Is independent for her ADLs and ambulates independently with no gait aids
+
+**History of Presenting Illness**
+
+* At baseline, despite her underlying malignancy and PFT findings, she has not respiratory symptoms
+* Presents to the hospital today with a history of 2 weeks of shortness of breath, fever, chills, night sweats, and feeling generally unwell
+
+**Review of Systems**
+
+* Positive for 3-day history of mild diarrhea
+* Does not have any headaches or vision changes
+* Has no abdominal pain and no recent urinary changes
+* Does not report any palpitations
+
+**Physical Examination**
+
+* Appeared in mild respiratory distress with tachypnea and some supraclavicular indrawings
+* Vitals: At triage, febrile to 39.7, heart rate of 156, and respiration rate of 30
+* On assessment now, temperature is 37.3, heart rate had decreased down to be 95 to 106, respiratory rate 22, blood pressure 106/76, SpO2 97% on 2 litres
+
+**Investigations**
+
+* VBG showed a pH of 7.43, CO2 of 40, bicarb of 27.2
+* Electrolytes showed hyponatremia at 129, potassium of 4.6, chloride of 93, bicarbonate 24
+* Normal white count at 8.1, hemoglobin at 112, from 127 on May 5, platelets 422
+* Chest x-ray shows chronic left-sided volume loss
+* X-ray of the left ankle shows no fracture
+* A CTPA on August 31 shows no PE, but does show left lower lobe consolidation consistent with pneumonia
+
+**Assessment and Plan**
+
+* In summary, Ms. J is a pleasant 76-year-old lady presenting from home with fever, tachycardia, tachypnea, in the setting of previously identified left lower lobe pneumonia.
+* We will start ceftriaxone and azithromycin to cover for atypical infections.
+* We will send urine legionella antigen to rule this out.v
+* We will order urinalysis to ensure no urine source, although we feel that this suspicion
