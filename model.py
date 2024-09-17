@@ -1,8 +1,7 @@
 ##This file loads up the model and handles direct interactions with said model
 import transformers
 import torch
-from transformers import AutoTokenizer
-from datasets import load_dataset
+#from transformers import AutoTokenizer
 
 
 class Interactor():
@@ -20,6 +19,8 @@ class Interactor():
             model_kwargs=model_kwargs,
             device_map="auto"
         )
+
+        self.promptInitializer = ("Summarize the following documents into a complete discharge summary:")
 
         #model loaded just awaiting instruction
 
@@ -51,17 +52,20 @@ class Interactor():
 
         return formatted_output
 
-
-
-
     def hello_world(self):
 
         x = self.send_prompt("Who are you and what do you do")
         print(x)
         return x
 
+    def summarize(self, text): # text should be in correct format - formatter code will be made
+        text = self.promptInitializer + text
+        x = self.send_prompt(text)
+
+        return x
+
 if __name__ == "__main__":
 
-    path = r"C:\Users\rajib\Documents\GitHub\discharge-summaries\saved_model"
+    path = r""#ENTER PATH OF
     i = Interactor(path)
     i.hello_world()
