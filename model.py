@@ -1,24 +1,44 @@
 ##This file loads up the model and handles direct interactions with said model
 import transformers
 import torch
-#from transformers import AutoTokenizer
+from transformers import AutoModelForCausalLM, LlamaForCausalLM, AutoTokenizer
 
 
 class Interactor():
     def __init__(self, model_path):
 
-        model_kwargs = { ##may change this for actual deployment depending on hardware
-                "torch_dtype": torch.bfloat16,
-                "quantization_config": {"load_in_4bit": True},  # tag these out once on server, only for test env
-                "low_cpu_mem_usage": True,
-            }
 
+        quantization_config = transformers.BitsAndBytesConfig(
+            load_in_8bit=True
+        )
+
+        model = AutoModelForCausalLM.from_pretrained(
+            model_path,
+            quantization_config=quantization_config,
+            torch_dtype=torch.bfloat16,  # Optional: Use bfloat16 for further optimization
+            device_map="auto",  # Automatically map model to available devices
+            low_cpu_mem_usage=True  # Reduces CPU memory usage during model loading
+        )
+
+        tokenizer = AutoTokenizer.from_pretrained(model_path)
+
+        # Initialize the pipeline with the loaded model and tokenizer
+        self.pipeline = transformers.pipeline(
+            "text-generation",
+            model=model,
+            tokenizer=tokenizer,
+            device_map="auto"  # Automatically handle device placement
+        )
+
+
+        '''
         self.pipeline = transformers.pipeline(
             "text-generation",
             model = model_path,
             model_kwargs=model_kwargs,
             device_map="auto"
         )
+        '''
 
         self.promptInitializer = ("Summarize the following documents into a complete discharge summary:")
 
