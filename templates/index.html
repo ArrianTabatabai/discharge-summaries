@@ -1,8 +1,105 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Flask Tutorial</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discharge Summary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<h1>This is the Index page</h1>
+    <div class="container">
+        <h1>Patient Discharge Summary</h1>
+
+        <!-- Loading Spinner (visible while fetching summary) -->
+        <div id="loading-spinner" class="spinner" style="display: none;"></div>
+
+        <!-- Buttons for Export and Edit (hidden by default) -->
+        <div id="action-buttons" class="action-buttons" style="display: none;">
+            <button id="exportBtn">Export to PDF</button>
+            <button id="editBtn">Edit</button>
+            <button id="saveBtn" style="display: none;">Save</button>
+        </div>
+
+        <!-- Discharge summary content -->
+        <div id="summary" class="summary-container"></div>
+
+    </div>
+
+    <!-- Include jsPDF library from CDN for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+        // Function to format the summary
+        function formatSummary(text) {
+            return text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\n/g, '<br>');
+        }
+
+        // Show loading spinner and hide the action buttons initially
+        document.getElementById('loading-spinner').style.display = 'block';
+        document.getElementById('action-buttons').style.display = 'none';
+
+        // Fetch the summary and display it
+        let originalSummary = '';
+        fetch('/summary')
+            .then(response => response.json())
+            .then(data => {
+                const summary = data.summary;
+                originalSummary = summary;
+                const formattedSummary = formatSummary(summary);
+                document.getElementById('summary').innerHTML = formattedSummary;
+
+                // Hide the loading spinner once summary is loaded
+                document.getElementById('loading-spinner').style.display = 'none';
+
+                // Show buttons after summary is loaded
+                document.getElementById('action-buttons').style.display = 'flex';
+            })
+            .catch(error => {
+                console.error('Error fetching summary:', error);
+                document.getElementById('loading-spinner').style.display = 'none'; // Hide spinner on error
+            });
+
+        // Export summary to PDF
+        document.getElementById('exportBtn').addEventListener('click', function () {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const summaryText = originalSummary.replace(/\*\*(.*?)\*\*/g, '$1');  // Remove ** for PDF
+            doc.text(summaryText, 10, 10);
+            doc.save('DischargeSummary.pdf');
+        });
+
+        // Edit button functionality
+        document.getElementById('editBtn').addEventListener('click', function () {
+            const summaryContainer = document.getElementById('summary');
+            const editableContent = originalSummary
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\n/g, '\n');
+
+            // Replace the current formatted summary with editable text areas
+            summaryContainer.innerHTML = `<textarea id="editableSummary" style="width: 100%; height: 400px;">${editableContent}</textarea>`;
+
+            // Show "Save" button and hide "Export"
+            document.getElementById('saveBtn').style.display = 'inline-block';
+            document.getElementById('exportBtn').style.display = 'none';  // Hide "Export" button
+            this.style.display = 'none';  // Hide "Edit" button
+        });
+
+        // Save button functionality
+        document.getElementById('saveBtn').addEventListener('click', function () {
+            const updatedSummary = document.getElementById('editableSummary').value;
+
+            // Update the formatted summary with the new text and display it
+            document.getElementById('summary').innerHTML = formatSummary(updatedSummary);
+
+            // Show "Export" button and "Edit" button, hide "Save"
+            document.getElementById('saveBtn').style.display = 'none';
+            document.getElementById('exportBtn').style.display = 'inline-block';  // Show "Export" button
+            document.getElementById('editBtn').style.display = 'inline-block';  // Show "Edit" button
+        });
+
+    </script>
 </body>
 </html>
